@@ -46,9 +46,11 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @for (review of testimonials; track review.name) {
+            @for (review of testimonials; track review.name; let i = $index) {
             <div
-                class="relative bg-white/60 backdrop-blur-2xl rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-terait-red/20 transition-all duration-500 hover:-translate-y-2 border border-white hover:border-red-100 group overflow-hidden cursor-pointer">
+            [attr.data-aos]="'fade-up'" 
+            [attr.data-aos-delay]="i * 150"
+            class="relative bg-white/60 backdrop-blur-2xl rounded-3xl p-10 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-terait-red/20 transition-all duration-500 hover:-translate-y-2 border border-white hover:border-red-100 group overflow-hidden cursor-pointer">
 
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-terait-red/5 to-orange-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -9,7 +9,7 @@ import { CareersComponent } from './components/careers/careers.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import * as AOS from 'aos';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -36,6 +36,14 @@ import { FooterComponent } from './components/footer/footer.component';
     <app-footer></app-footer>
     `,
 })
-export class AppComponent {
-  title = 'terait-web';
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    // Initialize the scroll animations
+    AOS.init({
+      duration: 800,      // How long the animation takes
+      easing: 'ease-out', // Smooth timing function
+      once: true,         // Elements animate only once when scrolling down
+      offset: 100         // Trigger point (100px before the element hits the bottom of the screen)
+    });
+  }
 }

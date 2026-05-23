@@ -1,4 +1,4 @@
-<section class="py-24 relative overflow-hidden bg-slate-50">
+<section id="services" class="py-24 relative overflow-hidden bg-slate-50">
 
     <div class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         <div
@@ -24,8 +24,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            @for (service of services; track service.title) {
+            @for (service of services; track service.title; let i = $index) {
             <div
+            [attr.data-aos]="'fade-up'" 
+            [attr.data-aos-delay]="i * 100"
                 class="group relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-terait-red/20 transition-all duration-500 border border-white hover:border-red-100 hover:-translate-y-2 cursor-pointer overflow-hidden">
 
                 <div
