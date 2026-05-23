@@ -1,0 +1,61 @@
+<section class="py-24 bg-white relative z-10">
+
+    <div class="absolute inset-0 z-0 opacity-[0.03]"
+        style="background-image: radial-gradient(circle at 2px 2px, black 1px, transparent 0); background-size: 32px 32px;">
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="text-center mb-20 animate-fade-in-up">
+            <h2 class="text-terait-red font-extrabold tracking-widest uppercase text-xs mb-3">Support</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                Frequently Asked <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-terait-red to-orange-500">Questions</span>
+            </h3>
+            <p class="text-lg text-gray-500 leading-relaxed">
+                Find quick answers to common questions about our IT services, support, and enterprise infrastructure
+                solutions.
+            </p>
+        </div>
+
+        <div class="space-y-6">
+            @for (faq of faqs; track faq.question; let i = $index) {
+            <div class="relative bg-white border rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer group"
+                [class.border-red-100]="faq.isOpen" [class.shadow-2xl]="faq.isOpen" [class.shadow-red-100]="faq.isOpen"
+                [class.border-gray-100]="!faq.isOpen" [class.hover:shadow-xl]="!faq.isOpen"
+                [class.hover:-translate-y-1]="!faq.isOpen">
+
+                <div class="absolute left-0 top-0 w-1.5 h-full bg-gradient-to-b from-terait-red to-orange-400 transform origin-top transition-transform duration-500 ease-out"
+                    [class.scale-y-100]="faq.isOpen" [class.scale-y-0]="!faq.isOpen"></div>
+
+                <button (click)="toggleFaq(i)"
+                    class="w-full text-left px-8 py-7 flex justify-between items-center focus:outline-none bg-transparent">
+
+                    <span class="font-bold text-lg transition-colors duration-300" [class.text-terait-red]="faq.isOpen"
+                        [class.text-gray-900]="!faq.isOpen" [class.group-hover:text-terait-red]="!faq.isOpen">
+                        {{ faq.question }}
+                    </span>
+
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 flex-shrink-0 ml-4"
+                        [class.bg-red-50]="faq.isOpen" [class.bg-gray-50]="!faq.isOpen"
+                        [class.group-hover:bg-red-50]="!faq.isOpen">
+                        <span class="text-terait-red text-2xl font-light transition-transform duration-500"
+                            [class.rotate-180]="faq.isOpen">
+                            {{ faq.isOpen ? '−' : '+' }}
+                        </span>
+                    </div>
+                </button>
+
+                <div class="overflow-hidden transition-all duration-500 ease-in-out"
+                    [style.maxHeight]="faq.isOpen ? '500px' : '0px'" [style.opacity]="faq.isOpen ? '1' : '0'">
+                    <div class="px-8 pb-8 text-gray-600 leading-relaxed text-lg pl-10">
+                        {{ faq.answer }}
+                    </div>
+                </div>
+
+            </div>
+            }
+        </div>
+
+    </div>
+</section>
