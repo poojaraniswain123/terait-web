@@ -1,14 +1,23 @@
 <section id="home"
     class="relative bg-[#040814] text-white min-h-[90vh] flex items-center justify-center overflow-hidden z-10 pt-20">
 
-    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none"
+    <video autoplay loop playsinline [muted]="true"
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 pointer-events-none">
+        <source src="/coding.mp4" type="video/mp4">
+    </video>
+
+    <div
+        class="absolute inset-0 z-[1] bg-gradient-to-b from-[#040814]/70 via-[#040814]/60 to-[#040814] pointer-events-none">
+    </div>
+
+    <div class="absolute inset-0 z-[2] opacity-20 pointer-events-none"
         style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;">
     </div>
 
     <div
-        class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-terait-red opacity-[0.15] blur-[120px] rounded-full mix-blend-screen pointer-events-none animate-pulse">
+        class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-terait-red opacity-[0.25] blur-[120px] rounded-full mix-blend-screen pointer-events-none animate-pulse z-[2]">
     </div>
-    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600 opacity-[0.10] blur-[150px] rounded-full mix-blend-screen pointer-events-none animate-pulse"
+    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600 opacity-[0.15] blur-[150px] rounded-full mix-blend-screen pointer-events-none animate-pulse z-[2]"
         style="animation-delay: 2s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pb-24 md:pb-32">
@@ -33,7 +42,7 @@
             </h1>
 
             <p data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000"
-                class="mt-6 text-xl md:text-2xl text-gray-400 leading-relaxed max-w-3xl mx-auto font-medium">
+                class="mt-6 text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-md">
                 Enterprise networking, surveillance, and managed cloud solutions delivered by industry veterans.
             </p>
 
@@ -54,7 +63,7 @@
                     </div>
                 </button>
                 <button
-                    class="bg-white/[0.05] border border-gray-600 hover:border-white hover:bg-white/10 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:-translate-y-1">
+                    class="bg-white/[0.05] border border-gray-500 hover:border-white hover:bg-white/10 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:-translate-y-1 shadow-lg">
                     Contact Sales
                 </button>
             </div>

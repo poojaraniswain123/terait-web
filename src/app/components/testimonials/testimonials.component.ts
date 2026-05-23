@@ -15,11 +15,11 @@ interface Testimonial {
 })
 export class TestimonialsComponent {
 
-  partners = [
+  private basePartners = [
     'VERTEX INNOVATIONS', 'SECURE NETWORKS', 'NEXUS TECHNOLOGIES', 'SOAR ENTERPRISES'
   ];
 
-  testimonials: Testimonial[] = [
+  private baseTestimonials: Testimonial[] = [
     {
       name: 'Rajesh Kumar',
       role: 'Business Owner',
@@ -42,4 +42,8 @@ export class TestimonialsComponent {
       initials: 'MN'
     }
   ];
+
+  // We duplicate the arrays to create a seamless infinite scrolling loop
+  partners = [...this.basePartners, ...this.basePartners, ...this.basePartners];
+  testimonials = [...this.baseTestimonials, ...this.baseTestimonials];
 }
