@@ -1,48 +1,95 @@
-<header class="bg-white shadow-md sticky top-0 z-50">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+    [class]="isScrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-black/5' : 'bg-transparent'">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
 
             <a href="#home" class="flex-shrink-0 flex items-center cursor-pointer group">
-            
-                <img class="h-10 w-auto group-hover:scale-105 transition-transform duration-300" src="/logo.png" alt="Terait Logo">
-            
-                <span class="ml-3 text-2xl font-black tracking-widest text-gray-900">
+                <img class="h-12 w-auto group-hover:scale-105 transition-all duration-300 rounded-lg" 
+                     [class]="isScrolled ? '' : 'ring-1 ring-white/20'"
+                     src="logo.png" 
+                     alt="Terait Logo">
+                <span class="ml-3 text-2xl font-black tracking-widest transition-colors duration-300"
+                      [class]="isScrolled ? 'text-gray-900' : 'text-white'">
                     TERAIT<span class="text-terait-red">.</span>
                 </span>
-            
             </a>
 
             <nav class="hidden md:flex space-x-8 items-center">
-
                 <a href="#home"
-                    class="text-xs font-bold text-gray-500 hover:text-terait-red transition-colors uppercase tracking-widest">
+                    class="text-xs font-bold transition-colors uppercase tracking-widest"
+                    [class]="isScrolled ? 'text-gray-500 hover:text-terait-red' : 'text-white/80 hover:text-white'">
                     Home
                 </a>
-
                 <a href="#services"
-                    class="text-xs font-bold text-gray-500 hover:text-terait-red transition-colors uppercase tracking-widest">
+                    class="text-xs font-bold transition-colors uppercase tracking-widest"
+                    [class]="isScrolled ? 'text-gray-500 hover:text-terait-red' : 'text-white/80 hover:text-white'">
                     Services
                 </a>
-
                 <a href="#careers"
-                    class="text-xs font-bold text-gray-500 hover:text-terait-red transition-colors uppercase tracking-widest">
+                    class="text-xs font-bold transition-colors uppercase tracking-widest"
+                    [class]="isScrolled ? 'text-gray-500 hover:text-terait-red' : 'text-white/80 hover:text-white'">
                     Careers
                 </a>
-
                 <a href="#contact"
-                    class="text-xs font-bold text-gray-500 hover:text-terait-red transition-colors uppercase tracking-widest">
+                    class="text-xs font-bold transition-colors uppercase tracking-widest"
+                    [class]="isScrolled ? 'text-gray-500 hover:text-terait-red' : 'text-white/80 hover:text-white'">
                     Contact
                 </a>
-
             </nav>
 
             <div class="hidden md:flex items-center">
-                <button routerLink="/contact"
-                    class="bg-gray-900 text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-terait-red transition-all duration-300 shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5">
+                <button 
+                    class="px-7 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+                    [class]="isScrolled 
+                        ? 'bg-gray-900 text-white hover:bg-terait-red hover:shadow-red-500/30' 
+                        : 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'">
                     Get Started
                 </button>
             </div>
 
+            <!-- Mobile menu button -->
+            <button class="md:hidden p-2 rounded-lg transition-colors"
+                    [class]="isScrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'"
+                    (click)="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path *ngIf="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path *ngIf="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
         </div>
+
+        <!-- Mobile menu -->
+        <div *ngIf="mobileMenuOpen" 
+             class="md:hidden pb-6 animate-fade-in-up"
+             [class]="isScrolled ? 'bg-white' : 'bg-[#040814]/95 backdrop-blur-xl rounded-2xl mt-2'">
+            <nav class="flex flex-col space-y-4 px-4 pt-4">
+                <a href="#home" (click)="closeMobileMenu()"
+                    class="text-sm font-bold uppercase tracking-widest py-2"
+                    [class]="isScrolled ? 'text-gray-700 hover:text-terait-red' : 'text-white/90 hover:text-white'">
+                    Home
+                </a>
+                <a href="#services" (click)="closeMobileMenu()"
+                    class="text-sm font-bold uppercase tracking-widest py-2"
+                    [class]="isScrolled ? 'text-gray-700 hover:text-terait-red' : 'text-white/90 hover:text-white'">
+                    Services
+                </a>
+                <a href="#careers" (click)="closeMobileMenu()"
+                    class="text-sm font-bold uppercase tracking-widest py-2"
+                    [class]="isScrolled ? 'text-gray-700 hover:text-terait-red' : 'text-white/90 hover:text-white'">
+                    Careers
+                </a>
+                <a href="#contact" (click)="closeMobileMenu()"
+                    class="text-sm font-bold uppercase tracking-widest py-2"
+                    [class]="isScrolled ? 'text-gray-700 hover:text-terait-red' : 'text-white/90 hover:text-white'">
+                    Contact
+                </a>
+                <button 
+                    class="mt-4 w-full py-3 rounded-full font-bold uppercase tracking-widest text-sm bg-terait-red text-white hover:bg-red-600 transition-colors">
+                    Get Started
+                </button>
+            </nav>
+        </div>
+
     </div>
 </header>

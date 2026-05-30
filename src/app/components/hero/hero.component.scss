@@ -1,0 +1,109 @@
+#canvas-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+// Shimmer animation for buttons
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+// Subtle float animation for elements
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Glow pulse animation
+@keyframes glow-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+    }
+}
+
+// Scan line effect (subtle)
+.scan-line {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 212, 255, 0.03) 50%,
+        transparent 100%
+    );
+    animation: scan 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+// Enhanced button hover states
+.cta-primary {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+    }
+    
+    &:hover::before {
+        transform: translateX(100%);
+    }
+}
+
+// Tech badge hover effect
+.tech-badge {
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    }
+}
+
+// Canvas overlay for better text contrast
+.canvas-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 100% 100% at 50% 50%,
+        transparent 0%,
+        rgba(4, 8, 20, 0.3) 70%,
+        rgba(4, 8, 20, 0.6) 100%
+    );
+    pointer-events: none;
+}

@@ -7,3 +7,32 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a1628;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0066cc, #00d4ff);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0077ee, #00e5ff);
+}
+
+/* Selection highlight */
+::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: white;
+}
+
+/* Smooth transitions globally */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
